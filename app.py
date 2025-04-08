@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load model & data
-model = joblib.load("loan_model.pkl")
+model = joblib.load("random_forest_model.pkl")
 data = pd.read_csv("loan_data_set.csv")
 
 st.set_page_config(page_title="Loan Prediction App", layout="wide")
