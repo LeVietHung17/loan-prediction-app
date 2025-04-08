@@ -44,16 +44,16 @@ with tab2:
 
 
     if st.button("Dự đoán"):
-    gender_num = 1 if gender == 'Male' else 0
-    married_num = 1 if married == 'Yes' else 0
-    education_num = 1 if education == 'Graduate' else 0
-    self_emp_num = 1 if self_employed == 'Yes' else 0
-    credit_num = 1 if credit == 'Có' else 0
-    property_map = {'Urban': 2, 'Semiurban': 1, 'Rural': 0}
-    property_num = property_map[property_area]
+        gender_num = 1 if gender == 'Male' else 0
+        married_num = 1 if married == 'Yes' else 0
+        education_num = 1 if education == 'Graduate' else 0
+        self_emp_num = 1 if self_employed == 'Yes' else 0
+        credit_num = 1 if credit == 'Có' else 0
+        property_map = {'Urban': 2, 'Semiurban': 1, 'Rural': 0}
+        property_num = property_map[property_area]
 
 
-    input_data = np.array([[gender_num, married_num, education_num, income, loan_amount]])
-    prediction = model.predict(input_data)[0]
-    result = "✅ Phê duyệt" if prediction == 1 else "❌ Từ chối"
-    st.success(f"Kết quả: {result}")
+        input_data = np.array([[gender_num, married_num, education_num, income, loan_amount]])
+        prediction = model.predict(input_data)[0]
+        result = "✅ Phê duyệt" if prediction == 1 else "❌ Từ chối"
+        st.success(f"Kết quả: {result}")
