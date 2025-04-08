@@ -33,30 +33,27 @@ with tab1:
 with tab2:
     st.title("🔮 Dự đoán khoản vay")
 
-   gender = st.selectbox("Giới tính", ['Male', 'Female'])
-married = st.selectbox("Hôn nhân", ['Yes', 'No'])
-education = st.selectbox("Học vấn", ['Graduate', 'Not Graduate'])
-self_employed = st.selectbox("Tự kinh doanh", ['Yes', 'No'])
-income = st.number_input("Thu nhập", value=4000)
-loan_amount = st.number_input("Số tiền vay", value=100)
-credit = st.selectbox("Lịch sử tín dụng", ['Có', 'Không'])
-property_area = st.selectbox("Khu vực", ['Urban', 'Semiurban', 'Rural'])
+    gender = st.selectbox("Giới tính", ['Male', 'Female'])
+    married = st.selectbox("Hôn nhân", ['Yes', 'No'])
+    education = st.selectbox("Học vấn", ['Graduate', 'Not Graduate'])
+    self_employed = st.selectbox("Tự kinh doanh", ['Yes', 'No'])
+    income = st.number_input("Thu nhập", value=4000)
+    loan_amount = st.number_input("Số tiền vay", value=100)
+    credit = st.selectbox("Lịch sử tín dụng", ['Có', 'Không'])
+    property_area = st.selectbox("Khu vực", ['Urban', 'Semiurban', 'Rural'])
 
 
     if st.button("Dự đoán"):
-        gender_num = 1 if gender == 'Male' else 0
-married_num = 1 if married == 'Yes' else 0
-education_num = 1 if education == 'Graduate' else 0
-self_emp_num = 1 if self_employed == 'Yes' else 0
-credit_num = 1 if credit == 'Có' else 0
-property_map = {'Urban': 2, 'Semiurban': 1, 'Rural': 0}
-property_num = property_map[property_area]
-
-input_data = np.array([[gender_num, married_num, education_num, self_emp_num,
-                        income, loan_amount, credit_num, property_num]])
+    gender_num = 1 if gender == 'Male' else 0
+    married_num = 1 if married == 'Yes' else 0
+    education_num = 1 if education == 'Graduate' else 0
+    self_emp_num = 1 if self_employed == 'Yes' else 0
+    credit_num = 1 if credit == 'Có' else 0
+    property_map = {'Urban': 2, 'Semiurban': 1, 'Rural': 0}
+    property_num = property_map[property_area]
 
 
-        input_data = np.array([[gender_num, married_num, education_num, income, loan_amount]])
-        prediction = model.predict(input_data)[0]
-        result = "✅ Phê duyệt" if prediction == 1 else "❌ Từ chối"
-        st.success(f"Kết quả: {result}")
+    input_data = np.array([[gender_num, married_num, education_num, income, loan_amount]])
+    prediction = model.predict(input_data)[0]
+    result = "✅ Phê duyệt" if prediction == 1 else "❌ Từ chối"
+    st.success(f"Kết quả: {result}")
